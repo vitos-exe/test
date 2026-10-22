@@ -1,0 +1,14 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	external = difft --color=always
+	tool = difft
+[push]
+	autoSetupRemote = true
+
+[merge "weave"]
+	name = Entity-level semantic merge
+	driver = /opt/homebrew/bin/weave-driver %O %A %B %L %P
